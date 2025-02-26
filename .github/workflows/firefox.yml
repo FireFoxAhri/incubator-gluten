@@ -24,13 +24,17 @@ on:
 jobs:
   build:
     runs-on: ubuntu-22.04
-    container: eclipse-temurin:17-jammy
+    container: ubuntu:jammy
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin' # See 'Supported distributions' for available options
+          java-version: '17'
       - name: Build Gluten velox
         run: |
           apt-get update
-          apt-get -y install maven sudo git
+          apt-get -y install sudo git
           sudo ./dev/buildbundle-veloxbe.sh
       - name: Upload bundle package
         uses: actions/upload-artifact@v4
