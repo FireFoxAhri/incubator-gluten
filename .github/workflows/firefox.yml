@@ -34,7 +34,9 @@ jobs:
           wget https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz
           tar -xzvf apache-maven-3.9.9-bin.tar.gz -C /usr/lib/
           export PATH=$PATH:/usr/lib/apache-maven-3.9.9/bin
-          sudo ./dev/buildbundle-veloxbe.sh
+          ls /usr/lib/apache-maven-3.9.9/bin
+          mvn -version
+#          sudo ./dev/buildbundle-veloxbe.sh
       - name: Upload bundle package
         uses: actions/upload-artifact@v4
         with:
