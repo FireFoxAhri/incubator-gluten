@@ -33,6 +33,7 @@ jobs:
           java-version: '17'
       - name: Build Gluten velox
         run: |
+          mvn --version
           apt-get update
           apt-get -y install sudo git
           sudo ./dev/buildbundle-veloxbe.sh
