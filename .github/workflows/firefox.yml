@@ -30,6 +30,9 @@ jobs:
       - name: Build Gluten velox
         run: |
           apt-get update
+          set -e
+          ./dev/vcpkg/setup-build-depends.sh
+          source ./dev/vcpkg/env.sh
           apt-get -y install sudo git wget curl zip unzip tar
           wget https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz
           tar -xzvf apache-maven-3.9.9-bin.tar.gz -C /usr/lib/
