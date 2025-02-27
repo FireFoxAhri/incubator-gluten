@@ -33,7 +33,7 @@ jobs:
           apt-get -y install sudo git wget curl zip unzip tar
           set -e
           ./dev/vcpkg/setup-build-depends.sh
-          source ./dev/vcpkg/env.sh
+          ./dev/vcpkg/env.sh
           wget https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz
           tar -xzvf apache-maven-3.9.9-bin.tar.gz -C /usr/lib/
           export PATH=$PATH:/usr/lib/apache-maven-3.9.9/bin
