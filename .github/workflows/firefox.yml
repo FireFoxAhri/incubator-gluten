@@ -36,7 +36,7 @@ jobs:
           export PATH=$PATH:/usr/lib/apache-maven-3.9.9/bin
           ls /usr/lib/apache-maven-3.9.9/bin
           mvn -version
-          ./dev/buildbundle-veloxbe.sh
+          ./dev/buildbundle-veloxbe.sh -enable_vcpkg=ON --build_tests=OFF --build_benchmarks=OFF --enable_s3=ON  --enable_hdfs=ON
       - name: Upload bundle package
         uses: actions/upload-artifact@v4
         with:
