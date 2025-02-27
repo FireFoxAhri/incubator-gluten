@@ -138,8 +138,7 @@ install_ubuntu_20.04() {
     apt-get update && apt-get -y install \
         wget curl tar zip unzip git \
         build-essential ccache cmake ninja-build pkg-config autoconf autoconf-archive libtool \
-        flex bison \
-        openjdk-8-jdk maven
+        flex bison
     # Overwrite gcc-9 installed by build-essential.
     sudo apt install -y software-properties-common
     sudo add-apt-repository ppa:ubuntu-toolchain-r/test
