@@ -30,14 +30,13 @@ jobs:
       - name: Build Gluten velox
         run: |
           apt-get update
+          apt-get -y install sudo git wget curl zip unzip tar
           set -e
           ./dev/vcpkg/setup-build-depends.sh
           source ./dev/vcpkg/env.sh
-          apt-get -y install sudo git wget curl zip unzip tar
           wget https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz
           tar -xzvf apache-maven-3.9.9-bin.tar.gz -C /usr/lib/
           export PATH=$PATH:/usr/lib/apache-maven-3.9.9/bin
-          ls /usr/lib/apache-maven-3.9.9/bin
           mvn -version
           ./dev/buildbundle-veloxbe.sh --enable_vcpkg=ON --build_tests=OFF --build_benchmarks=OFF --enable_s3=ON  --enable_hdfs=ON
       - name: Upload bundle package
